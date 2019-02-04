@@ -1,0 +1,25 @@
+#Pontifica Universidad Javeriana
+#Analisis numerico
+#Metodo del punto fijo
+#Camilo Eduardo Cruz Gutierrez
+#tol=nivel de tolerancia
+#N=numero de iteraciones permitidas
+
+
+x0=2;  tol=0.00000001 ; N=15
+#Declaracion de funciones
+f=function(x) acos(x-2)-1+x 
+g=function(x) acos(x-2)-1+ x
+curve(g,from = -2, to=2)
+curve (1*x, from =-2, 2, add=TRUE)
+for (i in 1:N) {
+  x=g(x0)
+  print(c(i,x0,x))
+  e=abs(x-x0)
+  if(e<tol){
+    cat("converge", i, "iterciones .Raiz=",x)
+    stop()
+  }
+  x0=x
+}
+cat("Maximo numero de iteraiones exedidads")
