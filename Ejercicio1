@@ -1,1 +1,21 @@
-
+  # Camilo Cruz
+  #se define la funcion a sacar raices
+ f<-function(x){
+ return ((x^3)-(x^2)+1)
+ }
+ # la funcion que aplica el metodo de biseccion
+ bisection<-function(a,b){
+ if(a>b){
+ return (bisection(b,a))
+ }
+ c=0.5*(a+b);
+ if(abs(f(c))<=1E-8){
+ return (c)
+ }
+ if(f(a)*f(c)<0){
+ return (bisection(a,c))
+ }
+ if(f(c)*f(b)<0){
+ return (bisection(c,b))
+ }
+ }
