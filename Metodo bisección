@@ -19,3 +19,7 @@
  return (bisection(c,b))
  }
  }
+# una aplicación de hallar raices en ingenieria de sistemas es por ejemplo, cuando se quisiera hacer el envio de algun misil o provisiones
+#en el ambito militar seria necesario conocer de las raices para cumplir con el objetivo.
+# otra aplicación seria en el caso de realizar un software para una empresa. de este modo conociendo las raices se podrian hacer predicciones
+# para maximizar ventas y minimizar costos.
