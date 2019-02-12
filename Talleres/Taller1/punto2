@@ -1,0 +1,9 @@
+#Pontifica Universidad Javeriana
+#Analisis numerico
+#Camilo cruz
+a =as.double(readline(prompt = "Ingrese un numero "))
+while(a>0){
+  d<-a%%2
+  a<-a/2
+  print(d)
+}
