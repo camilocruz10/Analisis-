@@ -1,0 +1,23 @@
+#se define la funcion a evaluar
+#codigo en python
+def f (x):
+    return (x**3+2*x**2-x+1)
+# E es el error a evaluar
+E=1E-8
+print("ingrese a")
+numero=int (input())
+print ("ingrese b")
+numero2=int (input())
+d=numero2-numero
+d=d/10
+x=numero
+bol=True
+while bol:
+    num=f(x)
+    x=x+d
+    if num<0 and f(x)>0 or num>0 and f(x)<0:
+        x=x-d
+        d=d/10
+    if d<E:
+        bol= False
+        print ("la raiz es:" , x)
