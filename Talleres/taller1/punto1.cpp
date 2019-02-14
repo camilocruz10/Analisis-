@@ -37,7 +37,6 @@ int main ( )
     cin >> remp;
     int mul=0, sum=0;
     b[grado] = a[grado];
-    cout<<b[grado]<<"\n";
     for(int k=(grado-1); k>=0; k--){
         b[k]=remp*b[k+1];
 
