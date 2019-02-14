@@ -40,9 +40,9 @@ int main ( )
     cout<<b[grado]<<"\n";
     for(int k=(grado-1); k>=0; k--){
         b[k]=remp*b[k+1];
-        cout<<b[k]<<" 1 "<<endl;
+
         b[k]=b[k]+a[k];
-        cout<<b[k]<<" 2 "<<endl;
+        
          mul++;
          sum++;
     }
