@@ -1,0 +1,41 @@
+#Metodo de newton
+rm (list = ls ())
+f1 <- función (x) 2 + cos (3 * x)
+f2 <- función (x) 2-exp (x)
+nw <-function(a,b,t){
+  if(f1(a)*f2(b)<0){
+    error<-1
+    numeroanterior=t
+    while(error>1.e-4){
+      t<-t-f1(t0)/dfdt(t)
+      error<-abs(t-numeroanteriro)/abs(t)
+      numeroanterior<-t
+    }
+  }else{
+    cat("El intervalo escogido no tiene una raiz única.")
+  }
+  return(t)
+}
+nw(0,pi/4)
+
+
+#Metodo secante
+f1<-función (x) 2 + cos (3 * x)
+f2<-función (x) 2-exp (x)
+Sc<-función (a, b) 
+{
+  x <- (f1(b) * a-f1(a) * b) / (f1(b) -f1(a))
+  error <-1
+  mientras (error> 1.e-4) 
+  {
+    a<-b
+    b<-x
+    x<- (f1(b) * a-f1(a) * b) / (f1(b) -f1(a))
+    if(f1(x) == 0){
+    	break
+    }
+    error <-abs (f1(x) / f2(x))
+    cat ("r =", x, "\ t", "E =", error, "\ n")
+  }
+}
+secante (3 * pi / 2,pi)
