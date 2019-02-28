@@ -1,0 +1,34 @@
+f<-function(x){return(tan(pi*x))
+  }
+
+g<-function(x){
+  return( cos(pi*x))
+}
+
+final<-function(x)
+{
+  return(tan(pi*x)-cos(pi*x))
+}
+
+algoritmo<-function(xm1,xm2,tolerancia){
+  cat(c("x_k","f(x_k)","error estimado",'\n'))
+repeat{
+auxxm1=xm1
+aux1= (final(xm1)*(xm1-xm2))
+aux2= (final(xm1)-final(xm2))
+err=aux1/aux2
+
+xm1=xm1- (aux1 /aux2)
+
+cat(c(xm1,tan(pi*xm1),err,'\n'))
+xm2=auxxm1
+cat (c(xm1,xm2,'\n'))
+if(abs(xm1-xm2)<tolerancia){
+break;
+}
+}
+cat("El punto de interseccion es: (",toString(format(xm1,nsmall = 4)),",",toString(format(cos(pi*xm1),nsmall = 4)),")\n", "error: ",err )
+}
+
+algoritmo(0.2,0.7,10**-4)
+algoritmo(2.2,0.6,10**-4)
