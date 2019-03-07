@@ -1,0 +1,15 @@
+N <- 3
+A <- Diag(rep(3,N)) + Diag(rep(-2, N-1), k=-1) + Diag(rep(-1, N-1), k=1)
+x0 <- rep(0, N)
+b = c(4,5,6)
+
+itersolve(A, b, tol=1e-9 , method = "Gauss-Seidel")
+
+D = diag(A) * diag(nrow=N)
+luA = expand(lu(A))
+L = luA$L
+U = luA$U
+
+#Matriz de transición
+T = (-(D^-1)*U)*(diag(nrow=N) + (D^-1*L)^-1)
+T
