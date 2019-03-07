@@ -1,0 +1,105 @@
+#PUNTO 3A
+ 
+polcar = function(A){
+
+x = charpoly(A, info = TRUE)
+
+}
+
+
+
+ 
+
+# 3B
+
+{r}
+
+Z = A
+
+Q = A
+
+Q[lower.tri(Q,diag=TRUE)] <- 0
+
+Z[upper.tri(Z, diag = TRUE)] <- 0
+
+#print (A)
+
+D = diag(diag(A))
+
+I=diag(1,nrow = nrow(A)) # Matriz diagonal de dimension 3
+
+D1 <- solve(D,I) # Matriz inversa de A
+
+T1 = D1 %*% U
+
+T2 = (I + (Q %*% D1))
+
+T2<- solve(T2,I) # Matriz inversa de A
+
+MatTG = T1+T2
+
+normaG = norm(MatTG, type = c( "I"))
+
+print("Convergencia Gauss")
+
+print(normaG)
+
+MatTJ = (-D1)%*%(L+U)
+
+normaJ = norm(MatTJ, type = c("I"))
+
+print("Convergencia Jacobi")
+
+print(normaJ)
+
+
+
+
+ 
+
+# 3C. 
+
+print("Matriz transicion Gauss")
+
+print(MatTG)
+
+print("Matriz transicion Jacobi")
+
+print (MatTJ)
+
+
+
+ 
+
+# 3D. 
+
+
+
+A = matrix(c(4, -1, -1, -1, -1, 4,
+
+-1, -1, -1, -1, 4, -1,
+
+-1, -1, -1, 4), nrow=4, byrow=TRUE)
+
+A
+
+b = c(1, 5, 1.5,-2.33)
+
+b
+
+
+
+#3D 
+
+
+X <- itersolve(A, b, method = "Jacobi")
+
+print(X)
+
+X <- itersolve(A, b, tol = 1e-9 , method = "Gauss-Seidel")
+
+print(X)
+
+solucion<- solve(A,b)
+
+print(solucion)
