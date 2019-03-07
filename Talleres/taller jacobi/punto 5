@@ -1,0 +1,58 @@
+#Punto 5
+
+be = 0
+al = 3
+
+A = matrix(c(2, 0, 1,
+             be,2 , -1,
+             -1, 1, al), nrow=3, byrow=TRUE)
+B = matrix (c(1,2,1),nrow=3, byrow=TRUE)
+Ab = cbind(A,B)
+
+print(Ab)
+
+#puntp b y c
+library("plot3D")
+
+x = 0
+y = 0
+z = 0
+
+diag1 <- function(M) {
+  
+  M[col(M)!=row(M)] <- 0
+  
+  return(M)
+}
+
+jacobiPr2 <- function(A,b, x0, tol){
+  x_k = matrix(x0)
+  
+  D = diag1(A)
+  L = tril(A,k=-1,diag = FALSE)
+  U = triu(A,k=1,diag = FALSE)
+  
+  it = 1
+  repeat
+  {
+    inn = matrix(b-((L+U)%*%x_k))
+    D1 = (solve(D))
+    xk1 = D1%*%inn
+    cat("Error ",it," ",norm(xk1-x_k,"F")/norm(x_k),"\n")
+    x_k = xk1
+    
+    x[[it]] = x_k[1]
+    y[[it]] = x_k[2]
+    z[[it]] = x_k[3]
+    cat("Solucion iteracion ",it,": ",x[[it]]," ",y[[it]]," ",z[[it]],"\n")
+    it = it + 1
+    
+    if(it == tol)
+      break
+  }
+  lines3D(x, y, z, colvar = z, col = NULL, add = FALSE, theta = 20, phi = 20)
+  cat("Solucion a ", tol ," iteraciones: ",x_k,"\n")
+}
+
+x1 = c(1,2,3)
+jacobiPr2(A, B, x1, 10)
