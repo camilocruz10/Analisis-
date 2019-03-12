@@ -9,7 +9,7 @@ newtonInterpolacion = function(x, y, a) {
   for (k in 2:n) { 
     smds[k] = (a - x[k-1])*smds[k-1]
   } 
-  return(sum(diag(A)*smds) ) 
+  return(A) 
 }
 #funcion del librp
 A1=newtonInterpolacion(hora[1:4], tim[1:4],1)
