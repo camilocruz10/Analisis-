@@ -12,7 +12,6 @@ x = charpoly(A, info = TRUE)
 
 # 3B
 
-{r}
 
 Z = A
 
